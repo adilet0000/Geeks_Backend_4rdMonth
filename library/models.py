@@ -31,3 +31,24 @@ class Book(models.Model):
 
    def __str__(self):
       return f'{self.title} - {self.author}'
+   
+   
+   
+class Review(models.Model):
+   STARS = (
+      ('⭐', '⭐'),
+      ('⭐⭐', '⭐⭐'),
+      ('⭐⭐⭐', '⭐⭐⭐'),
+      ('⭐⭐⭐⭐', '⭐⭐⭐⭐'),
+      ('⭐⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'),
+
+   )
+   reviews_choice = models.ForeignKey(Book, 
+      on_delete=models.CASCADE,  
+      related_name='books')
+   created_at = models.DateField(auto_now_add=True)
+   comment = models.TextField(verbose_name='Ваш комментарий')
+   stars = models.CharField(max_length=100, choices=STARS, default='⭐⭐⭐⭐⭐')
+
+   def __str__(self):
+      return f'{self.comment}-{self.stars}'
