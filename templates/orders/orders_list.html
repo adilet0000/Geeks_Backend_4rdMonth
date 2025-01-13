@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Orders List</title>
+   <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+</head>
+<body>
+   <h1>Список заказов</h1>
+   <ul>
+      {% for i in orders_list %}
+         <li>
+            <h2>{{ i.choice_book }}</h2>
+            <p><strong>Имя:</strong> {{ i.name }}</p>
+            <button><a href="/orders_list/{{ i.id }}/">Подробнее</a></button>
+            <button><a href="/orders_list/{{ i.id }}/delete/">Удалить</a></button>
+            <button><a href="/orders_list/{{ i.id }}/update/">Изменить</a></button>
+         </li>
+      {% endfor %}
+   </ul>
+</body>
+</html>

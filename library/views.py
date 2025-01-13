@@ -1,6 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from datetime import datetime
+
+from .models import Book, Review
+from .forms import CommentForm
 
 from . import models
 
@@ -10,11 +13,38 @@ def book_list(request):
       context = { 'book_list': book_list }
       return render(request, template_name='book.html', context=context)
 
+
 def book_detail(request, id):
-   if request.method == "GET":
-      book_id = get_object_or_404(models.Book, id=id)
-      context = { 'book_id': book_id }
-      return render(request, template_name='book_detail.html', context=context)
+   book = get_object_or_404(Book, id=id)
+   
+   if request.method == "POST":
+      form = CommentForm(request.POST)
+      if form.is_valid():
+         comment = form.save(commit=False)
+         comment.reviews_choice = book
+         comment.save()
+         return redirect('book_detail', id=book.id)
+   else:
+      form = CommentForm()
+   
+   reviews = Review.objects.filter(reviews_choice=book).order_by('-created_at')
+   context = {
+      'book_id': book,
+      'form': form,
+      'reviews': reviews,
+   }
+   return render(request, template_name='book_detail.html', context=context)
+
+
+
+
+
+
+
+
+
+
+
 
 
 

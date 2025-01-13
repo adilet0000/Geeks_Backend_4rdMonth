@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Update Order</title>
+
+   <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+</head>
+<body>
+   <form method="POST" enctype="multipart/form-data">
+      <h1>Изменить заказ</h1>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Изменить заказ</button>
+   </form>
+</body>
+</html>
