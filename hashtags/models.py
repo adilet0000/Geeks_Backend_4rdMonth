@@ -7,7 +7,7 @@ class Tag(models.Model):
       return self.name
     
 class Product(models.Model):
-   name = models.CharField(max_length=100, verbose_name='Название продукта')
+   name = models.CharField(max_length=100, verbose_name='Название книги')
    price = models.PositiveIntegerField(default=100, verbose_name='Цена')
    tags = models.ManyToManyField(Tag, verbose_name='Тэг')
 

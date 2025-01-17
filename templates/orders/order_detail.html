@@ -9,13 +9,13 @@
 <body>
    <div class="order-detail">
       <h1>Детали заказа</h1>
-      <p><strong>Имя:</strong> {{ order_id.name }}</p>
-      <p><strong>Номер телефона:</strong> {{ order_id.phone_number }}</p>
-      <p><strong>Книга:</strong> {{ order_id.choice_book }}</p>
-      <p><strong>Email:</strong> {{ order_id.email }}</p>
-      <p><strong>Адрес:</strong> {{ order_id.address }}</p>
-      <p><strong>Создано:</strong> {{ order_id.created_at }}</p>
-      <p><strong>Обновлено:</strong> {{ order_id.updated_at }}</p>
+      <p><strong>Имя:</strong> {{ object.name }}</p>
+      <p><strong>Номер телефона:</strong> {{ object.phone_number }}</p>
+      <p><strong>Книга:</strong> {{ object.choice_book }}</p>
+      <p><strong>Email:</strong> {{ object.email }}</p>
+      <p><strong>Адрес:</strong> {{ object.address }}</p>
+      <p><strong>Создано:</strong> {{ object.created_at }}</p>
+      <p><strong>Обновлено:</strong> {{ object.updated_at }}</p>
    </div>
 </body>
 </html>
