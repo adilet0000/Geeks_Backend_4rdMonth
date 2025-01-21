@@ -7,7 +7,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('library.urls')),
     path('', include('hashtags.urls')),
-    path('', include('basket.urls'))
+    path('', include('basket.urls')),
+    path('', include('library_parsing.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

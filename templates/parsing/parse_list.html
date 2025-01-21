@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Спарсенные книги</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         background-color: #f9f9f9;
+         margin: 0;
+         padding: 0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+
+      h1 {
+         color: #333;
+         text-align: center;
+         margin-top: 20px;
+      }
+
+      .book-list {
+         width: 80%;
+         max-width: 800px;
+         background: #fff;
+         border: 1px solid #ddd;
+         border-radius: 8px;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         padding: 20px;
+         margin: 20px 0;
+      }
+
+      .book-item {
+         border-bottom: 1px solid #ddd;
+         padding: 15px 0;
+      }
+
+      .book-item:last-child {
+         border-bottom: none;
+      }
+
+      .book-item p {
+         margin: 0 0 10px;
+         font-size: 16px;
+         color: #555;
+      }
+
+      .book-item a {
+         text-decoration: none;
+         color: #007BFF;
+         font-weight: bold;
+         transition: color 0.3s ease;
+      }
+
+      .book-item a:hover {
+         color: #0056b3;
+      }
+
+      footer {
+         margin-top: 20px;
+         font-size: 14px;
+         color: #777;
+      }
+   </style>
+</head>
+<body>
+   <h1>Спарсенные книги</h1>
+   <div class="book-list">
+      {% for i in parse %}
+         <div class="book-item">
+            <p>{{ i.info }}</p>
+            <a href="https://www.litres.ru{{ i.href }}" target="_blank">Перейти к книге</a>
+         </div>
+      {% endfor %}
+   </div>
+   <footer>
+      &copy; 2025 Парсер книг. Все права защищены.
+   </footer>
+</body>
+</html>
