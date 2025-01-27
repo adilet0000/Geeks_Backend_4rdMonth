@@ -9,6 +9,7 @@ urlpatterns = [
     path('', include('hashtags.urls')),
     path('', include('basket.urls')),
     path('', include('library_parsing.urls')),
+    path('', include('employee_finder.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

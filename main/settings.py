@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "hashtags",
     "basket",
     "library_parsing",
+    "employee_finder"
 ]
 
 MIDDLEWARE = [
@@ -40,6 +41,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'employee_finder.middleware.SalaryMiddleware'
 ]
 
 ROOT_URLCONF = "main.urls"

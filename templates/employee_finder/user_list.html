@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>list</title>
+</head>
+
+<body>
+   <ul>
+      {% for i in employee_finder %}
+      <li> {{i.username}} </li>
+      <li> {{i.phone_number}} </li>
+      <li> {{i.age}} </li>
+      {% if i.experience %}
+      <li>Заработная плата: {{i.salary}} </li>
+      {% else %}
+      <li>{{i.salary}}</li>
+      {% endif %}
+      {% endfor %}
+   </ul>
+
+   <form action="{% url 'employee_finder:login' %}" method="POST">
+      {% csrf_token %}
+      <button type="submit">Выйти</button>
+   </form>
+</body>
+
+</html>
