@@ -6,10 +6,11 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('library.urls')),
-    path('', include('hashtags.urls')),
-    path('', include('basket.urls')),
-    path('', include('library_parsing.urls')),
-    path('', include('employee_finder.urls')),
+    path('hashtags/', include('hashtags.urls')),
+    path('basket/', include('basket.urls')),
+    path('library_parsing/', include('library_parsing.urls')),
+    path('employee_finder/', include('employee_finder.urls')),
+    path('recipes/', include('recipes.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

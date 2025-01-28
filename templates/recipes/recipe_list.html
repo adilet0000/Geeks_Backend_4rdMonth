@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Список рецептов</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+{% include "components/header.html" %}
+<link rel="stylesheet" href="{% static 'css/hashtags.css' %}">
+<link rel="stylesheet" href="{% static 'css/show.css' %}">
+
+<body>
+   <div class="container mt-5">
+      <h1 class="text-center mb-4">Список рецептов</h1>
+      <div class="text-end mb-3">
+         <a href="{% url 'create_recipe' %}" class="btn btn-primary">Добавить рецепт</a>
+      </div>
+      <ul class="list-group">
+         {% for recipe in recipes %}
+         <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>
+               <strong>{{ recipe.title }}</strong>
+            </span>
+            <div>
+               <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-outline-primary btn-sm">Просмотреть</a>
+               <a href="{% url 'delete_recipe' recipe.id %}" class="btn btn-outline-danger btn-sm">Удалить</a>
+            </div>
+         </li>
+         {% endfor %}
+      </ul>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
